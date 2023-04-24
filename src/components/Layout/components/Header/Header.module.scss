@@ -1,3 +1,8 @@
+$searchBorderRadius: 92px;
+$searchHeight: 46px;
+$searchTopSpacer: 9px;
+$searchButtonWidth: 52px;
+
 .wrapper {
   width: 100%;
   height: var(--default-layout-header-height);
@@ -9,4 +14,74 @@
 .inner {
   height: 100%;
   width: var(--default-layout-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+}
+.search {
+  position: relative;
+  display: flex;
+  width: 361px;
+  height: $searchHeight;
+  background: rgba(22, 24, 35, 0.06);
+  border-radius: $searchBorderRadius;
+  padding-left: 16px;
+  border: 1.5px solid transparent;
+
+  input {
+    flex: 1;
+    height: 100%;
+    color: var(--black-color);
+    font-size: 1.6rem;
+    background-color: transparent;
+    caret-color: var(--primary-color);
+  }
+
+  input:not(:placeholder-shown) ~ .search-btn {
+    color: rgba(22, 24, 35, 0.75);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: $searchTopSpacer;
+    right: $searchButtonWidth;
+    width: 1px;
+    height: calc(($searchHeight) - ($searchTopSpacer) * 2);
+    background: rgba(22, 24, 35, 0.12);
+  }
+
+  &:focus-within {
+    border-color: rgba(22, 24, 35, 0.2);
+  }
+}
+
+.clear,
+.loading {
+  position: absolute;
+  right: calc($searchButtonWidth + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(22, 24, 35, 0.34);
+}
+
+.search-btn {
+  width: $searchButtonWidth;
+  height: 100%;
+  border-top-right-radius: $searchBorderRadius;
+  border-bottom-right-radius: $searchBorderRadius;
+  font-size: 2rem;
+  color: rgba(22, 24, 35, 0.34);
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(22, 24, 35, 0.03);
+  }
+
+  &:active {
+    background: rgba(22, 24, 35, 0.06);
+  }
 }
