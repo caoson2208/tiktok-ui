@@ -1,7 +1,7 @@
-$searchBorderRadius: 92px;
-$searchHeight: 46px;
-$searchTopSpacer: 9px;
-$searchButtonWidth: 52px;
+$search-border-radius: 92px;
+$search-height: 46px;
+$search-top-spacer: 9px;
+$search-button-width: 52px;
 
 .wrapper {
   width: 100%;
@@ -21,13 +21,18 @@ $searchButtonWidth: 52px;
 
 .logo {
 }
+
+.search,
+.search-result {
+  width: 361px;
+}
+
 .search {
   position: relative;
   display: flex;
-  width: 361px;
-  height: $searchHeight;
+  height: $search-height;
   background: rgba(22, 24, 35, 0.06);
-  border-radius: $searchBorderRadius;
+  border-radius: $search-border-radius;
   padding-left: 16px;
   border: 1.5px solid transparent;
 
@@ -47,10 +52,10 @@ $searchButtonWidth: 52px;
   &::after {
     content: "";
     position: absolute;
-    top: $searchTopSpacer;
-    right: $searchButtonWidth;
+    top: $search-top-spacer;
+    right: $search-button-width;
     width: 1px;
-    height: calc(($searchHeight) - ($searchTopSpacer) * 2);
+    height: calc(($search-height) - ($search-top-spacer) * 2);
     background: rgba(22, 24, 35, 0.12);
   }
 
@@ -59,20 +64,27 @@ $searchButtonWidth: 52px;
   }
 }
 
+.search-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  color: rgba(22, 24, 35, 0.5);
+}
+
 .clear,
 .loading {
   position: absolute;
-  right: calc($searchButtonWidth + 12px);
+  right: calc($search-button-width + 12px);
   top: 50%;
   transform: translateY(-50%);
   color: rgba(22, 24, 35, 0.34);
 }
 
 .search-btn {
-  width: $searchButtonWidth;
+  width: $search-button-width;
   height: 100%;
-  border-top-right-radius: $searchBorderRadius;
-  border-bottom-right-radius: $searchBorderRadius;
+  border-top-right-radius: $search-border-radius;
+  border-bottom-right-radius: $search-border-radius;
   font-size: 2rem;
   color: rgba(22, 24, 35, 0.34);
 
@@ -84,4 +96,8 @@ $searchButtonWidth: 52px;
   &:active {
     background: rgba(22, 24, 35, 0.06);
   }
+}
+
+.custom-login {
+  color: red;
 }
